@@ -17,7 +17,7 @@ const schema = z.object({
 const Contact = () => {
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const data = {
@@ -29,11 +29,25 @@ const Contact = () => {
     const parsed = schema.safeParse(data);
     if (!parsed.success) { toast.error(parsed.error.issues[0].message); return; }
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const form = e.target as HTMLFormElement;
+      const res = await fetch("https://formsubmit.co/ajax/amanyadav.exe@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: "New Contact Message - Raj Logistics Packers",
+          _template: "table",
+          ...parsed.data,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
       toast.success("Message sent! We'll reach out within 10 minutes.");
-      (e.target as HTMLFormElement).reset();
-    }, 800);
+      form.reset();
+    } catch {
+      toast.error("Could not send. Please call +91 92175 14482.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -50,10 +64,10 @@ const Contact = () => {
         <div className="container-tight grid gap-10 lg:grid-cols-5">
           <div className="lg:col-span-2 space-y-4">
             {[
-              { icon: Phone, title: "Call Us", desc: "+91 99999 99999", href: "tel:+919999999999" },
-              { icon: MessageCircle, title: "WhatsApp", desc: "Chat with our team instantly", href: "https://wa.me/919999999999" },
+              { icon: Phone, title: "Call Us", desc: "+91 92175 14482", href: "tel:+919217514482" },
+              { icon: MessageCircle, title: "WhatsApp", desc: "Chat with our team instantly", href: "https://wa.me/919217514482" },
               { icon: Mail, title: "Email", desc: "info@rajlogisticspackers.com", href: "mailto:info@rajlogisticspackers.com" },
-              { icon: MapPin, title: "Office", desc: "New Delhi, India" },
+              { icon: MapPin, title: "Office", desc: "Guwahati, Assam, India" },
             ].map((c) => {
               const Comp: any = c.href ? "a" : "div";
               return (
@@ -105,7 +119,7 @@ const Contact = () => {
         <div className="container-tight overflow-hidden rounded-3xl border border-border shadow-soft">
           <iframe
             title="Office Map"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=77.0%2C28.4%2C77.4%2C28.8&layer=mapnik"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=91.5%2C26.05%2C91.95%2C26.30&layer=mapnik&marker=26.1445%2C91.7362"
             className="h-[360px] w-full border-0"
             loading="lazy"
           />

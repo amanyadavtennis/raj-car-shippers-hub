@@ -42,9 +42,9 @@ const Footer = () => (
       <div>
         <h4 className="text-sm font-bold uppercase tracking-wider text-accent">Get in Touch</h4>
         <ul className="mt-4 space-y-3 text-sm text-primary-foreground/80">
-          <li className="flex gap-2"><Phone className="h-4 w-4 text-accent" /> +91 99999 99999</li>
+          <li className="flex gap-2"><Phone className="h-4 w-4 text-accent" /> +91 92175 14482</li>
           <li className="flex gap-2"><Mail className="h-4 w-4 text-accent" /> info@rajlogisticspackers.com</li>
-          <li className="flex gap-2"><MapPin className="h-4 w-4 text-accent" /> New Delhi, India</li>
+          <li className="flex gap-2"><MapPin className="h-4 w-4 text-accent" /> Guwahati, Assam, India</li>
         </ul>
         <div className="mt-4 flex gap-3">
           {[Facebook, Instagram, Twitter].map((Icon, i) => (

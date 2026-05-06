@@ -77,7 +77,7 @@ const Index = () => {
                   Get Instant Quote <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </a>
-              <a href="tel:+919999999999">
+              <a href="tel:+919217514482">
                 <Button size="lg" variant="outline" className="border-primary-foreground/30 bg-primary-foreground/10 font-bold text-primary-foreground backdrop-blur hover:bg-primary-foreground/20">
                   <Phone className="mr-2 h-4 w-4" /> Call Now
                 </Button>
@@ -281,7 +281,7 @@ const Index = () => {
                 <a href="#quote">
                   <Button size="lg" className="gradient-accent font-bold text-accent-foreground shadow-accent">Get Free Quote</Button>
                 </a>
-                <a href="tel:+919999999999">
+                <a href="tel:+919217514482">
                   <Button size="lg" variant="outline" className="border-primary-foreground/30 bg-primary-foreground/10 font-bold text-primary-foreground hover:bg-primary-foreground/20">
                     <Phone className="mr-2 h-4 w-4" /> Call Now
                   </Button>
