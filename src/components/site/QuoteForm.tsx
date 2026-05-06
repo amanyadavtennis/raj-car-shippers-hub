@@ -35,12 +35,25 @@ const QuoteForm = ({ compact = false }: Props) => {
       return;
     }
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/amanyadav.exe@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `New Quote Request - ${parsed.data.vehicle}`,
+          _template: "table",
+          ...parsed.data,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
       toast.success("Quote request received! We'll call you within 10 minutes.");
       (e.target as HTMLFormElement).reset();
       setVehicle("Car");
-    }, 800);
+    } catch {
+      toast.error("Could not send. Please call +91 92175 14482.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
