@@ -50,10 +50,10 @@ const Contact = () => {
         <div className="container-tight grid gap-10 lg:grid-cols-5">
           <div className="lg:col-span-2 space-y-4">
             {[
-              { icon: Phone, title: "Call Us", desc: "+91 99999 99999", href: "tel:+919999999999" },
-              { icon: MessageCircle, title: "WhatsApp", desc: "Chat with our team instantly", href: "https://wa.me/919999999999" },
+              { icon: Phone, title: "Call Us", desc: "+91 92175 14482", href: "tel:+919217514482" },
+              { icon: MessageCircle, title: "WhatsApp", desc: "Chat with our team instantly", href: "https://wa.me/919217514482" },
               { icon: Mail, title: "Email", desc: "info@rajlogisticspackers.com", href: "mailto:info@rajlogisticspackers.com" },
-              { icon: MapPin, title: "Office", desc: "New Delhi, India" },
+              { icon: MapPin, title: "Office", desc: "Guwahati, Assam, India" },
             ].map((c) => {
               const Comp: any = c.href ? "a" : "div";
               return (

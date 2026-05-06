@@ -91,7 +91,7 @@ const Services = () => (
                 <Link to="/contact">
                   <Button className="gradient-accent font-bold text-accent-foreground shadow-accent">Get Quote <ArrowRight className="ml-1 h-4 w-4" /></Button>
                 </Link>
-                <a href="tel:+919999999999">
+                <a href="tel:+919217514482">
                   <Button variant="outline" className="font-semibold">Call Now</Button>
                 </a>
               </div>
