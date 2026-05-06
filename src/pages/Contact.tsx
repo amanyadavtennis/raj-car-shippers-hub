@@ -17,7 +17,7 @@ const schema = z.object({
 const Contact = () => {
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const data = {
@@ -29,11 +29,25 @@ const Contact = () => {
     const parsed = schema.safeParse(data);
     if (!parsed.success) { toast.error(parsed.error.issues[0].message); return; }
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const form = e.target as HTMLFormElement;
+      const res = await fetch("https://formsubmit.co/ajax/amanyadav.exe@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: "New Contact Message - Raj Logistics Packers",
+          _template: "table",
+          ...parsed.data,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
       toast.success("Message sent! We'll reach out within 10 minutes.");
-      (e.target as HTMLFormElement).reset();
-    }, 800);
+      form.reset();
+    } catch {
+      toast.error("Could not send. Please call +91 92175 14482.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
