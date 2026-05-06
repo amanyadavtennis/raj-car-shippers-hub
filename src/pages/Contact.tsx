@@ -105,7 +105,7 @@ const Contact = () => {
         <div className="container-tight overflow-hidden rounded-3xl border border-border shadow-soft">
           <iframe
             title="Office Map"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=77.0%2C28.4%2C77.4%2C28.8&layer=mapnik"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=91.5%2C26.05%2C91.95%2C26.30&layer=mapnik&marker=26.1445%2C91.7362"
             className="h-[360px] w-full border-0"
             loading="lazy"
           />
