@@ -20,7 +20,7 @@ const QuoteForm = ({ compact = false }: Props) => {
   const [vehicle, setVehicle] = useState<string>("Car");
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const data = {
